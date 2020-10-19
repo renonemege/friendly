@@ -4,7 +4,9 @@ class FriendGroupsController < ApplicationController
   end
 
   def new
-    @friend_group = FriendGroup.new
+    @friend_group = FriendGroup.new(friend_group_params)
+    @booking = Booking.new
+    @review = Review.new
   end
 
   def create
