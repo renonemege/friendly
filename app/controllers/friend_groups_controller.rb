@@ -5,7 +5,6 @@ class FriendGroupsController < ApplicationController
 
   def new
     @friend_group = FriendGroup.new
-
   end
 
   def create
