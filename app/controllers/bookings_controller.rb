@@ -1,4 +1,9 @@
 class BookingsController < ApplicationController
+
+  def index
+    @booking = current_user.booking
+  end
+
   def create
     @booking = Booking.new(booking_params)
     @friend_group = FriendGroup.find(params[:friend_group_id])
