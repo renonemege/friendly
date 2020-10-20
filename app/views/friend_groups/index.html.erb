@@ -1,26 +1,19 @@
 <h1>Friend Groups</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Banner url</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
+
+
     <% @friend_groups.each do |group| %>
-      <tr>
-        <td><%= group.title %></td>
-        <td><%= link_to 'Show', group %></td>
-        <td><%= link_to 'Edit', edit_friend_group_path(group) %></td>
-        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <ul>
+        <li><%= group.title %></li>
+        <li><%= link_to 'Show', group %></li>
+        <li><%= link_to 'Edit', edit_friend_group_path(group) %></li>
+        <li><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      </ul>
     <% end %>
-  </tbody>
-</table>
 
-<br>
+
+
 
 <%= link_to 'New Group', new_friend_group_path %>
+<%= link_to 'Go to Dashboard', dashboard_path(current_user.id) %>

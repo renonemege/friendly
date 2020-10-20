@@ -1,0 +1,36 @@
+<ul class="list-inline tabs-underlined">
+  <li>
+    <a href="#" class="tab-underlined active">Bookings</a>
+  </li>
+  <li>
+    <a href="#" class="tab-underlined">Requests</a>
+  </li>
+  <li>
+    <a href="#" class="tab-underlined">Conversations</a>
+  </li>
+</ul>
+
+  <h1>MY BOOKINGS</h1>
+
+
+
+
+  <% @sum = 1 %>
+  <% @bookings.each do |booking| %>
+    <h2><%= booking.friend_group[:title] %></h2>
+
+  <div class="card-product">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <div class="card-product-infos">
+      <h2>Product name</h2>
+      <p>Product description with <strong>relevant info</strong> only.</p>
+      <h3><%= @sum%></h3>
+      <p><strong>Price: </strong> <%= booking.total_price %></p>
+      <p><strong>Dates: </strong> <%= booking.start_date %>-<%= booking.end_date %></p>
+      <p><strong>Status: </strong> <%= booking.status %></p>
+      <% @sum += 1 %>
+    </div>
+  </div>
+  <% end %>
+
+
