@@ -1,4 +1,9 @@
 class BookingsController < ApplicationController
+
+  def index
+    @booking = current_user.booking
+  end
+
   def create
     @booking = Booking.new(booking_params)
     @friend_group = FriendGroup.find(params[:friend_group_id])
@@ -10,7 +15,8 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to friend_group_path(@friend_group)
     else
-      render 'cocktails/show'
+
+      render 'friend_groups/show'
     end
   end
 
