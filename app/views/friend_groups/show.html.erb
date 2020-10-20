@@ -1,16 +1,17 @@
-<<<<<<< Updated upstream
-=======
 <div class="cards mt-3 mx-3">
     <div class="card-category" >
       <h1>MEET THE GROUP: </h1>
       <h3><%= @friend_group.title %></h3>
+
       <img src="https://images.unsplash.com/photo-1478479405421-ce83c92fb3ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="group photo" />
+
       <p>--<%= @friend_group.description %>--</p>
       <p>Adress: <%= @friend_group.address%></p>
       <p>Price: <%= @friend_group.price %></p>
       <%= link_to "delete group ", friend_group_path(@friend_group), method: :delete, data: { confirm: "Are you sure?"}, class: "card-remove-link" %>
     </div>
 </div>
+
 
 <div class="card-product">
   <img src="https://images.unsplash.com/photo-1478479405421-ce83c92fb3ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="group photo"" />
@@ -46,6 +47,8 @@
 
 <ul class="list-group">
       <% running_tolal = 0 %>
+
+
       <% @friend_group.bookings.each do |booking| %>
         <div class="review mb-5 mt-3">
           <li class="list-group-item">
@@ -100,6 +103,7 @@
     <% end %>
   </ul>
 
+
 <div class="container">
     <div class="row justify-content-center">
       <div class="col-sm-8 text-center">
@@ -126,4 +130,3 @@
     </div>
   </div>
 </div>
->>>>>>> Stashed changes
