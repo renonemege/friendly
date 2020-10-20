@@ -1,0 +1,87 @@
+<div class="cards mt-3 mx-3">
+    <div class="card-category" >
+      <h1>MEET THE GROUP: </h1>
+      <h3><%= @friend_group.title %></h3>
+      <p>--<%= @friend_group.description %>--</p>
+      <p>Adress: <%= @friend_group.address%></p>
+      <p>Price: <%= @friend_group.price %></p>
+      <%= link_to "delete group ", friend_group_path(@friend_group), method: :delete, data: { confirm: "Are you sure?"}, class: "card-remove-link" %>
+    </div>
+</div>
+
+
+
+
+<div class="container mt-10`">
+  <h2>Add a booking</h2>
+  <%= simple_form_for [@friend_group, @booking] do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+    <div class="form-inputs">
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+      <%= f.input :status %>
+      <%= f.input :total_price %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+</div>
+
+<ul class="list-group">
+
+      <% @friend_group.bookings.each do |booking| %>
+        <div class="review mb-5 mt-3">
+          <li class="list-group-item">
+            <%= booking.start_date %>
+            <p><%= booking.end_date%></p>
+            <p><%= booking.total_price%></p>
+          </li>
+        </div>
+
+    <% end %>
+  </ul>
+
+<div class="container mt-100 p-100`">
+  <h2>Add a review</h2>
+  <%= simple_form_for [@friend_group, @review] do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+    <div class="form-inputs">
+      <%= f.input :content %>
+      <%= f.input :stars %>
+
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+</div>
+
+
+<ul class="list-group">
+    <% if @friend_group.reviews.nil? %>
+     <% 5.times do  %>
+        <span class="far fa-star"></span>
+     <% end %>
+    <% else %>
+      <% @friend_group.reviews.each do |review| %>
+        <div class="review mb-5 mt-3">
+          <li class="list-group-item">
+            <% review.stars.times do  %>
+              <span class="fas fa-star"></span>
+            <% end %>
+            <% (5 - review.stars).times do  %>
+              <span class="far fa-star"></span>
+            <% end %>
+            <p><%= review.content%></p>
+          </li>
+        </div>
+      <% end %>
+    <% end %>
+  </ul>
