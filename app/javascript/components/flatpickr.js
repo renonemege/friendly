@@ -1,11 +1,14 @@
 // const flatpickr = require("flatpickr");
 import flatpickr from "flatpickr";
+import "flatpickr/dist/themes/dark.css";
+
+
 
 const pickDate = () => {
-  mode: "range",
-    dateFormat: "Y-m-d",
-    defaultDate: ["2016-10-10", "2016-10-20"]
-        }
+  flatpickr(".date", {
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+  });
 };
 
 

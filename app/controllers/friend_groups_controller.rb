@@ -30,6 +30,12 @@ class FriendGroupsController < ApplicationController
   end
 
   def update
+    set_friend_group
+    if @friend_group.update(friend_group_params)
+      redirect_to @friend_group, notice: 'Group was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def destroy

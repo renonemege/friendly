@@ -1,5 +1,5 @@
 <div class="cards mt-3 mx-3">
-    <div class="card-category" >
+    <div class="card-group" >
       <h1>MEET THE GROUP: </h1>
       <h3><%= @friend_group.title %></h3>
 
@@ -8,18 +8,12 @@
       <p>--<%= @friend_group.description %>--</p>
       <p>Adress: <%= @friend_group.address%></p>
       <p>Price: <%= @friend_group.price %></p>
-      <%= link_to "delete group ", friend_group_path(@friend_group), method: :delete, data: { confirm: "Are you sure?"}, class: "card-remove-link" %>
+      <%= link_to "delete group ", friend_group_path(@friend_group), method: :delete, data: { confirm: "Are you sure?"}, class: "card-remove-link btn btn-danger" %>
+      <%= link_to 'Edit', edit_friend_group_path(@friend_group), class: "card-edit-link btn btn-danger" %> |
+      <%= link_to 'Back', friend_groups_path, class: "card-back-link btn btn-danger" %> |
     </div>
 </div>
 
-
-<div class="card-product">
-  <img src="https://images.unsplash.com/photo-1478479405421-ce83c92fb3ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80" alt="group photo"" />
-  <div class="card-product-infos">
-    <h2>Product name</h2>
-    <p>Product description with <strong>relevant info</strong> only.</p>
-  </div>
-</div>
 
 
 <div class="container mt-5`">
@@ -31,51 +25,45 @@
         <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
         <div class="form-inputs">
-          <%= f.input :start_date, as: :string, input_html: { class: "date" } %>
-          <%= f.input :end_date, as: :string, input_html: { class: "date" } %>
+          <%= f.input :start_date, as: :string, input_html: { class: "date start" } %>
+          <%= f.input :end_date, as: :string, input_html: { class: "date end" } %>
           <%= f.hidden_field :status, value: 'available' %>
-          <%= f.input :total_price, input_html: {value: f.object.total_price || '#{total_price}'} %>
+          <%= f.input :total_price, input_html: {value: f.object.total_price || '0', class: "total-price"} %>
         </div>
-        
         <div class="form-actions btn btn-outline-warning">
-          <%= f.button :submit %>
+          <%= f.button :submit%>
         </div>
       <% end %>
+      <!-- <div id=result></div> -->
+
     </div>
   </div>
 </div>
 
 <ul class="list-group">
-      <% running_tolal = 0 %>
-
-
-      <% @friend_group.bookings.each do |booking| %>
-        <div class="review mb-5 mt-3">
-          <li class="list-group-item">
-            <%= booking.start_date %>
-            <p><%= booking.end_date%></p>
-            <p><%= booking.total_price%></p>
-
-          </li>
-        </div>
-
-    <% end %>
-  </ul>
+  <% @friend_group.bookings.each do |booking| %>
+    <div class="review mb-5 mt-3">
+      <li class="list-group-item">
+        <%= (booking.end_date - booking.start_date).to_i %>
+        <p><%= booking.end_date%></p>
+        <p><%= booking.total_price%></p>
+      </li>
+    </div>
+  <% end %>
+</ul>
 
 <div class="container mt-100 p-100`">
   <h2>Add a review</h2>
   <%= simple_form_for [@friend_group, @review] do |f| %>
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
     <div class="form-inputs">
       <%= f.input :content %>
       <%= f.input :stars %>
-
     </div>
-
     <div class="form-actions">
       <%= f.button :submit %>
+
     </div>
   <% end %>
 </div>
@@ -104,29 +92,3 @@
   </ul>
 
 
-<div class="container">
-    <div class="row justify-content-center">
-      <div class="col-sm-8 text-center">
-
-        <div class="flex-between">
-                  Participants:
-                  <div class="actions">
-                    <a class="btn round-bordered incrementer minus" data-offset="-1">-</a>
-                    <span id="counter" data-count="1">1</span>
-                    <a href="#" class="btn round-bordered incrementer" data-offset="1">+</a>
-            </div>
-        </div>
-
-        <form>
-        <input type="number" value="15000" disabled class="form-control" id="price-input" name="price-cents">
-        <input type="submit" value="Pay 150€" class="btn btn-primary" id="submit">
-      </form>
-
-
-      <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-sm-8 text-center">
-          
-    </div>
-  </div>
-</div>

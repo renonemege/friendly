@@ -1,19 +1,23 @@
-<h1>Friend Groups</h1>
+<div class="container mt-15">
+  <h1>Friend Groups</h1>
+</div>
 
 
 
 
+<div class="cards mb-5">
     <% @friend_groups.each do |group| %>
-      <ul>
-        <li><%= group.title %></li>
-        <li><%= link_to 'Show', group %></li>
-        <li><%= link_to 'Edit', edit_friend_group_path(group) %></li>
-        <li><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></li>
-      </ul>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1478479405421-ce83c92fb3ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80)">
+        <h2><%= group.title %></li></h2>
+        <div class="card-tags">
+          <%= link_to 'Show', group %>
+          <%= link_to 'Edit', edit_friend_group_path(group) %></p>
+          <%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <h2 class="card-trip-pricing"><%= group.price %></h2>
+        </div>
+      </div>
     <% end %>
+</div>
 
 
 
-
-<%= link_to 'New Group', new_friend_group_path %>
-<%= link_to 'Go to Dashboard', dashboard_path(current_user.id) %>
