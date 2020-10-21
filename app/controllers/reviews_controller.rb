@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
-    @booking = Booking.find(params[:friend_group_id])
+    @booking = Booking.find_by(friend_group_id: params[:friend_group_id])
     @review.booking = @booking
     @friend_group = @booking.friend_group
 
