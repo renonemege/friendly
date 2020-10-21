@@ -25,6 +25,9 @@ require("channels")
 import "bootstrap";
 import { pickDate } from "../components/flatpickr";
 // import { getTotalPrice } from "../components/price"
+import { initMapbox } from '../plugins/init_mapbox';
+
+
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -34,4 +37,6 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   pickDate();
   // getTotalPrice();
+  initMapbox();
+
 });
