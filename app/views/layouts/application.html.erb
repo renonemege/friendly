@@ -29,6 +29,9 @@
               <%= link_to 'Dashboard', dashboard_path(current_user.id), class: "a" %>
             </li>
             <li class= " btn btn-warning ml-2">
+              <%= link_to 'Add New Group', new_friend_group_path, class: "a" %>
+            </li>
+            <li class= " btn btn-warning ml-2">
               <%= link_to 'Sign out', destroy_user_session_path, class: "a", method: :delete %>
             </li>
 
