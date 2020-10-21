@@ -18,6 +18,11 @@ class BookingsController < ApplicationController
     end
   end
 
+  def show
+    @booking = Booking.find(params[:id])
+    @total_price = (@end_date - @start_date).to_i * @friend_group.price
+  end
+
   private
 
   def booking_params
