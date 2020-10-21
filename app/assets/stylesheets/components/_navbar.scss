@@ -10,3 +10,26 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+body {
+  margin: 0px;
+}
+
+.a { 
+  color: white;
+}
+
+
+
+.btn-warning:hover .a {
+
+  color: orange;
+  text-decoration: none;
+}
+
+
+.btn-warning:hover {
+
+  background-color: white; 
+  text-decoration: none;
+}
