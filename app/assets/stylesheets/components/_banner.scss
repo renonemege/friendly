@@ -1,26 +1,24 @@
-// .home-banner {
-//   background-image: url("../../images/background.jpg");
-//   background-size: cover;
-//   height: 100vh;
-//   color: rgb(234, 216, 8);
-//   text-align: center;
-//   padding-top: 40vh;
-// }
-
-body .home{
+.banner {
   background-size: cover;
   background-position: center;
   padding: 150px 0;
-  background-image: url('https://miro.medium.com/max/1104/0*YZ-XFZ4qdj_ZM8Lo');
-  height: 100%;
 }
 
-body h1 {
+.banner h1 {
   margin: 0;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 64px;
+  font-size: 48px;
   font-weight: bold;
-  text-align: center;
-  margin-bottom: 60px;
+}
+
+.banner p {
+  font-size: 20px;
+  color: white;
+  text-shadow: 2px 2px #black;
+  font-size: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+body {
+  background-color: #f8f1f1;
 }
