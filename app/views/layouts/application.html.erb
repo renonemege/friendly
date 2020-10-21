@@ -16,7 +16,21 @@
 
   <body>
     <p class="alert"><%= alert %></p>
+
     <%= render 'shared/flashes' %>
+    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top navbar-static-top mb-10">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-header navbar-brand">
+          <%= link_to "Groups", friend_groups_path, class: "nav-link" %>
+        </div>
+
+        <ul class="nav navbar-nav">
+          <li class="active"><%= link_to 'New Group', new_friend_group_path, class: "btn btn-danger" %></li>
+        </ul>
+        <div class="nav navbar-nav">
+        </div>
+      </div>
+    </div>
     <%= yield %>
   </body>
 </html>
