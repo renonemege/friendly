@@ -1,5 +1,6 @@
       <div class="border">
-      <div class="card-product " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path(@friend_group.photo.key, :crop => :fill) %> ')">
+      <div class="card-product">
+        <img src='<%= cl_image_path(@friend_group.photo.key, :crop => :fill) %> ' alt="group photo" />
         <div class="card-product-infos">
           <h3><%= @friend_group.title %></h3>
           <p>--<%= @friend_group.description %>--</p>
