@@ -34,6 +34,10 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'geocoder'
+# ----protection
+gem 'dotenv-rails', groups: [:development, :test]
+# ----external
+gem 'cloudinary', '~> 1.16.0'
 
 group :development, :test do
   gem 'pry-byebug'
