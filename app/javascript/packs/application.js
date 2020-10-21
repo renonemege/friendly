@@ -26,7 +26,7 @@ import "bootstrap";
 import { pickDate } from "../components/flatpickr";
 // import { getTotalPrice } from "../components/price"
 import { initMapbox } from '../plugins/init_mapbox';
-
+import { initUpdateNavbarOnScroll } from '../components/navbar';
 
 
 // Internal imports, e.g:
@@ -38,5 +38,5 @@ document.addEventListener('turbolinks:load', () => {
   pickDate();
   // getTotalPrice();
   initMapbox();
-
+  initUpdateNavbarOnScroll();
 });
