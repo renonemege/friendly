@@ -3,15 +3,13 @@ class FriendGroupsController < ApplicationController
     @friend_groups = FriendGroup.all
     # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
     @markers = @friend_groups.geocoded.map do |friend_group|
-
       {
         lat: friend_group.latitude,
         lng: friend_group.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { friend_group: friend_group })
-        # image_url: helpers.asset_url('people.png')
+        infoWindow: render_to_string(partial: "info_window", locals: { friend_group: friend_group }),
+        image_url: helpers.asset_url('head4.png')
       }
     end
-
   end
 
   def new
