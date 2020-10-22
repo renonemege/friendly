@@ -13,7 +13,7 @@
 
       <% if current_user && @friend_group.user%>
       <li class= " btn btn-warning ml-2 mt-5">
-        <%= link_to "delete group ", friend_group_path(@friend_group), method: :delete, data: { confirm: "Are you sure?"}, class: "a" %>
+        <%= link_to "Delete", friend_group_path(@friend_group), method: :delete, data: { confirm: "Are you sure?"}, class: "a" %>
       </li>
       <li class= " btn btn-warning ml-2 mt-5">
         <%= link_to 'Edit', edit_friend_group_path(@friend_group), class: "a" %>
@@ -31,8 +31,7 @@
 
 
 
-
-<div class="group-info-container">
+<div class="group-info-container col ">
   <div class="interaction-container">
     <div class="border-booking">
       <div class="make-booking-container">
@@ -66,7 +65,7 @@
 
     <% if !current_user.bookings.where(friend_group_id: params[:id]).empty?  %>
       <div class="leave-review-container">
-        <div class="d-flex">
+        <div class="d-flex-contents">
           <h2>Leave a nice comment...</h2>
             <%= simple_form_for [@friend_group, @review] do |f| %>
               <div class="form-inputs">
@@ -125,4 +124,4 @@
 
 
 
-</div>
+
