@@ -2,71 +2,93 @@
       <div class="card-product">
         <img src='<%= cl_image_path(@friend_group.photo.key, :crop => :fill) %> ' alt="group photo" />
         <div class="card-product-infos">
-          <h3><%= @friend_group.title %></h3>
+          <div class="card-title mb-5 p-1">
+            <h3><%= @friend_group.title %></h3>
+          </div>
           <p>--<%= @friend_group.description %>--</p>
           <p>Adress: <%= @friend_group.address%></p>
-          <p>Price: <%= @friend_group.price %>€</p>
+          <p><strong>Price: <%= @friend_group.price %>€</strong></p>
+
+          <% if current_user && @friend_group.user%>
+          <li class= " btn btn-warning ml-2 mt-5">
+            <%= link_to "delete group ", friend_group_path(@friend_group), method: :delete, data: { confirm: "Are you sure?"}, class: "a" %>
+          </li>
+          <li class= " btn btn-warning ml-2 mt-5">
+            <%= link_to 'Edit', edit_friend_group_path(@friend_group), class: "a" %>
+          </li>
+            <% end %>
+              <li class= " btn btn-warning ml-2 mt-5">
+                <%= link_to 'Back', friend_groups_path, class: "a" %>
+              </li>
         </div>
       </div>
     </div>
-
-  <% if current_user && @friend_group.user%>
-    <li class= " btn btn-warning ml-2">
-       <%= link_to "delete group ", friend_group_path(@friend_group), method: :delete, data: { confirm: "Are you sure?"}, class: "a" %>
-    </li>
-    <li class= " btn btn-warning ml-2">
-      <%= link_to 'Edit', edit_friend_group_path(@friend_group), class: "a" %>
-    </li>
-
-  <% end %>
-    <li class= " btn btn-warning ml-2">
-      <%= link_to 'Back', friend_groups_path, class: "a" %>
-    </li>
+ 
 
 
 
-<div class="container mt-5`">
-  <div class="row justify-content-center">
-    <div class="col-6">
-      <h2>Add a booking</h2>
-      <%= simple_form_for [@friend_group, @booking] do |f| %>
-        <div class="form-inputs">
-          <%= f.input :start_date, as: :string, input_html: { class: "date start" } %>
-          <%= f.input :end_date, as: :string, input_html: { class: "date end" } %>
+
+
+
+<div class="group-info-container">
+  <div class="interaction-container">
+    <div class="make-booking-container">
+       <%= simple_form_for [@friend_group, @booking] do |f| %>
+       <div class="d-flex">
+       <h2>Rent this friend group...</h2>
+        <div class="form-inputs d-flex">
+          <%= f.input :start_date,
+                      as: :string, 
+                      input_html: { class: "date start" }, 
+                      label: false,
+                      placeholder: "from", 
+                      wrapper_html: { class: "mr-2 ml-1" } %>
+          <%= f.input :end_date,
+                      as: :string,
+                      input_html: { class: "date end" },
+                      label: false,
+                      placeholder: "until",
+                      wrapper_html: { class: "mr-2" } %>
+                       
+
           <%= f.hidden_field :status, value: 'available' %>
         </div>
-        <div class="form-actions btn btn-outline-warning">
-          <%= f.button :submit%>
+        <div class="form-actions">
+          <%= f.button :submit,"meet up!", class:"btn btn-outline-warning"%>
         </div>
+       </div>
+      <% end %>
+    </div>
+
+      <% if current_user %>
+      <div class="leave-review-container">
+        <div class="d-flex">
+          <h2>Leave a nice comment...</h2>
+          
+            <%= simple_form_for [@friend_group, @review] do |f| %>
+              <div class="form-inputs">
+                <%= f.input :content,
+                            as: :text,
+                            label: false %>
+                <%= f.input :stars,
+                            label: false %>
+           
+            <div class="form-actions">
+              <%= f.button :submit,"leave a comment!", class:"btn btn-outline-warning"%>
+            </div>
+        </div>
+        </div>
+        <% end %>
+      </div>
       <% end %>
 
-    </div>
-  </div>
-</div>
-
-
-<% if current_user %>
-  <div class="container mt-100 p-100`">
-    <h2>Add a review</h2>
-    <%= simple_form_for [@friend_group, @review] do |f| %>
-      <div class="form-inputs">
-        <%= f.input :content %>
-        <%= f.input :stars %>
-      </div>
-      <div class="form-actions">
-        <%= f.button :submit %>
-      </div>
-    <% end %>
-  </div>
-<% end %>
-
-
-<ul class="list-group">
-    <% if @friend_group.reviews.nil? %>
-     <% 5.times do  %>
-        <span class="far fa-star"></span>
-     <% end %>
-    <% else %>
+    <div class="reviews">
+      <ul class="list-group">
+      <% if @friend_group.reviews.nil? %>
+      <% 5.times do  %>
+          <span class="far fa-star"></span>
+      <% end %>
+      <% else %>
       <% @friend_group.reviews.each do |review| %>
         <div class="review mb-5 mt-3">
           <li class="list-group-item">
@@ -82,10 +104,15 @@
       <% end %>
     <% end %>
   </ul>
+    </div>
+  </div>
 
-<div id="map"
-     style="width: 450px; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+
+  <div id="map" class="show-map"
+    style= "height: 100vh;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
+
 </div>
-
