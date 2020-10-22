@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_21_192426) do
+ActiveRecord::Schema.define(version: 2020_10_22_220622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2020_10_21_192426) do
 
   create_table "friend_groups", force: :cascade do |t|
     t.string "price"
-    t.string "description"
+    t.text "description"
     t.string "title"
     t.string "address"
     t.bigint "user_id", null: false
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2020_10_21_192426) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.string "content"
+    t.text "content"
     t.integer "stars"
     t.bigint "booking_id", null: false
     t.datetime "created_at", precision: 6, null: false
