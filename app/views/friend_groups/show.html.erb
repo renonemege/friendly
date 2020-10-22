@@ -62,7 +62,7 @@
       <% end %>
     </div>
 
-      <% if current_user %>
+    <% if !current_user.bookings.where(friend_group_id: params[:id]).empty?  %>
       <div class="leave-review-container">
         <div class="d-flex">
           <h2>Leave a nice comment...</h2>
@@ -78,16 +78,15 @@
                 <%=f.radio_button :stars, 2, :id => "star2" %> <label for="star2" title="Poor!"></label>
                 <%=f.radio_button :stars, 1, :id => "star1" %> <label for="star1" title="Very Poor!"></label>
               </fieldset>
-
             <div class="form-actions">
               <%= f.button :submit,"leave a comment!", class:"btn btn-outline-warning"%>
-
             </div>
-        </div>
+          </div>
         </div>
         <% end %>
       </div>
-      <% end %>
+      <% else %>
+    <% end %>
 
     <div class="reviews">
       <ul class="list-group">
@@ -120,6 +119,7 @@
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+
 
 
 </div>
