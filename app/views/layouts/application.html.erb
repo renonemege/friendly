@@ -16,53 +16,11 @@
 
   <body>
 
-    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon ">
-      <li class= " btn btn-warning ml-2">
-        <%= link_to 'Home', friend_groups_path, class: "a p-2" %>
-      </li>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="h-25 d-inline-block" style = "width: 800px">
-          <form novalidate="novalidate" class="simple_form search" action="<%= friend_groups_path %>" accept-charset="UTF-8" method="get">
-            <input name="utf8" type="hidden" value="&#x2713;" />
-            <div class="search-form-control form-group col-6">
-              <input class="form-control string required" type="text" name="query" id="search_query" />
-              <button name="button" type="submit" class="btn btn-flat">
-                <div class="search-icon">
-                  <%= link_to friend_groups_path, :class => 'fas fa-search' do %>
-                    <span class="icon-home"></span>
-                  <% end %>
-                </div>
-              </button>
-            </div>
-          </form>
-        </div>
-
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item user">
-            <% if current_user %>
-              <li class= " btn btn-warning ml-2 h-25">
-                <%= link_to 'Dashboard', dashboard_path(current_user.id), class: "a" %>
-              </li>
-              <li class= " btn btn-warning ml-2 h-25">
-                <%= link_to 'Add Group', new_friend_group_path, class: "a" %>
-              </li>
-              <li class= " btn btn-warning ml-2 h-25">
-                <%= link_to 'Sign out', destroy_user_session_path, class: "a", method: :delete %>
-              </li>
-
-            <% else %>
-              <li class= " btn btn-warning ml-2 h-25 ">
-                  <%= link_to 'Sign up', new_user_registration_path, class: "a" %>
-              </li>
-              <li class= " btn btn-warning ml-2 h-25">
-                <%= link_to 'Sign in', new_user_session_path, class: "a" %>
-              </li>
-        </ul>
-          <% end %>
-    </div>
 
 
-  </div>
+
+
+
 
     <p class="alert"><%= alert %></p>
     <%= render 'shared/flashes' %>
