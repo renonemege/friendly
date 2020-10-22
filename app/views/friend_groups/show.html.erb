@@ -33,59 +33,61 @@
 
 <div class="group-info-container">
   <div class="interaction-container">
-    <div class="make-booking-container">
-       <%= simple_form_for [@friend_group, @booking] do |f| %>
-       <div class="d-flex">
-       <h2>Rent this friend group...</h2>
-        <div class="form-inputs d-flex">
-          <%= f.input :start_date,
-                      as: :string,
-                      input_html: { class: "date start" },
-                      label: false,
-                      placeholder: "from",
-                      wrapper_html: { class: "mr-2 ml-1" } %>
-          <%= f.input :end_date,
-                      as: :string,
-                      input_html: { class: "date end" },
-                      label: false,
-                      placeholder: "until",
-                      wrapper_html: { class: "mr-2" } %>
-
-
-          <%= f.hidden_field :status, value: 'available' %>
-        </div>
-        <div class="form-actions">
-          <%= f.button :submit,"meet up!", class:"btn btn-outline-warning"%>
-        </div>
-       </div>
-      <% end %>
-    </div>
-
-      <% if current_user %>
-      <div class="leave-review-container">
+    <div class="border-booking">
+      <div class="make-booking-container">
+        <%= simple_form_for [@friend_group, @booking] do |f| %>
         <div class="d-flex">
-          <h2>Leave a nice comment...</h2>
+        <h2>Rent this friend group...</h2>
+          <div class="form-inputs d-flex">
+            <%= f.input :start_date,
+                        as: :string,
+                        input_html: { class: "date start" },
+                        label: false,
+                        placeholder: "from",
+                        wrapper_html: { class: "mr-2 ml-1" } %>
+            <%= f.input :end_date,
+                        as: :string,
+                        input_html: { class: "date end" },
+                        label: false,
+                        placeholder: "until",
+                        wrapper_html: { class: "mr-2" } %>
 
-            <%= simple_form_for [@friend_group, @review] do |f| %>
-              <div class="form-inputs">
-                <%= f.input :content,
-                            as: :text,
-                            label: false %>
-              <fieldset class="rating">
-                <%=f.radio_button :stars, 5, :id => "star5" %><label for="star5" title="Excellent!"></label>
-                <%=f.radio_button :stars, 4, :id => "star4" %> <label for="star4" title="Good!"></label>
-                <%=f.radio_button :stars, 3, :id => "star3" %> <label for="star3" title="Average!"></label>
-                <%=f.radio_button :stars, 2, :id => "star2" %> <label for="star2" title="Poor!"></label>
-                <%=f.radio_button :stars, 1, :id => "star1" %> <label for="star1" title="Very Poor!"></label>
-              </fieldset>
 
-            <div class="form-actions">
-              <%= f.button :submit,"leave a comment!", class:"btn btn-outline-warning"%>
-            </div>
-        </div>
+            <%= f.hidden_field :status, value: 'available' %>
+          </div>
+          <div class="form-actions">
+            <%= f.button :submit,"meet up!", class:"btn btn-outline-warning"%>
+          </div>
         </div>
         <% end %>
       </div>
+    </div>
+
+      <% if current_user %>
+        <div class="leave-review-container">
+          <div class="d-flex">
+            <h2>Leave a nice comment...</h2>
+
+              <%= simple_form_for [@friend_group, @review] do |f| %>
+                <div class="form-inputs">
+                  <%= f.input :content,
+                              as: :text,
+                              label: false %>
+                <fieldset class="rating">
+                  <%=f.radio_button :stars, 5, :id => "star5" %><label for="star5" title="Excellent!"></label>
+                  <%=f.radio_button :stars, 4, :id => "star4" %> <label for="star4" title="Good!"></label>
+                  <%=f.radio_button :stars, 3, :id => "star3" %> <label for="star3" title="Average!"></label>
+                  <%=f.radio_button :stars, 2, :id => "star2" %> <label for="star2" title="Poor!"></label>
+                  <%=f.radio_button :stars, 1, :id => "star1" %> <label for="star1" title="Very Poor!"></label>
+                </fieldset>
+
+              <div class="form-actions">
+                <%= f.button :submit,"leave a comment!", class:"btn btn-outline-warning"%>
+              </div>
+          </div>
+          </div>
+          <% end %>
+        </div>
       <% end %>
 
     <div class="reviews">

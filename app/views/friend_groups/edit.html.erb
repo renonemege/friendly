@@ -1,22 +1,26 @@
 
 
+<div class="edit-border">
+  <h1>Edit Friend Group</h1>
 
-<h1>Edit Friend Group</h1>
-
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-12">
-      <h4>Add a friend_group</h4>
-      <%= simple_form_for [ @friend_group ] do |f| %>
-        <%= f.input :price %>
-        <%= f.input :description %>
-        <%= f.input :title %>
-        <%= f.input :address %>
-        <%= f.submit "Edit", class: "btn btn-warning a" %>
-      <% end %>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <%= simple_form_for [ @friend_group ] do |f| %>
+          <p>Price:</p> <%= f.input :price,
+                                    label: false %>
+          <p>Description:</p><%= f.input :description,
+                                          label: false %>
+          <p>Group Name:</p><%= f.input :title,
+                                        label: false %>
+          <p>Address:</p><%= f.input :address,
+                                      label: false %>
+      </div>
     </div>
+      <div class="btn-place">
+          <%= f.submit "Edit", class: "btn btn-warning " %>
+        <% end %>
+    <%= link_to 'Back', friend_groups_path, class: "btn btn-warning " %>
+      </div>
   </div>
 </div>
-
-<%= link_to 'Show', @friend_group, btn btn-warning %> |
-<%= link_to 'Back', friend_groups_path %>
