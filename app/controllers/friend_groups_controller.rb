@@ -1,4 +1,5 @@
 class FriendGroupsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     @friend_groups = FriendGroup.all
     # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
