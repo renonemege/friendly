@@ -44,8 +44,8 @@ class FriendGroupsController < ApplicationController
       [{
         lat: @friend_group.latitude,
         lng: @friend_group.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { friend_group: @friend_group })
-        # image_url: helpers.asset_url('people.png')
+        infoWindow: render_to_string(partial: "info_window", locals: { friend_group: @friend_group }),
+        image_url: helpers.asset_url('head4.png')
       }]
   end
 
