@@ -7,4 +7,5 @@ Rails.application.routes.draw do
     resources :reviews, only: [:create]
   end
   resources :dashboards, only: [:show]
+  resources :bookings, only: [:show]
 end
