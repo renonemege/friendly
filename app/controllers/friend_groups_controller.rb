@@ -1,6 +1,10 @@
 class FriendGroupsController < ApplicationController
   def index
-    @friend_groups = FriendGroup.all
+    if params[:query].present?
+      @friend_groups = FriendGroup.search_by_title_and_desc(params[:query])
+    else
+      @friend_groups = FriendGroup.all
+    end
     # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
     @markers = @friend_groups.geocoded.map do |friend_group|
       {
