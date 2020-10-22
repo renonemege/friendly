@@ -47,7 +47,6 @@ class FriendGroupsController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { friend_group: @friend_group })
         # image_url: helpers.asset_url('people.png')
       }]
-
   end
 
   def edit
