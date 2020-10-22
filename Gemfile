@@ -38,6 +38,7 @@ gem 'geocoder'
 gem 'dotenv-rails', groups: [:development, :test]
 # ----external
 gem 'cloudinary', '~> 1.16.0'
+gem 'pg_search', '~> 2.3.4'
 
 
 group :development, :test do
