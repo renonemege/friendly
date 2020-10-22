@@ -1,24 +1,34 @@
 
-<%= link_to 'Back', friend_groups_path, class: "card-back-link btn btn-danger" %> |
 
+      <div class="row mt-3">
+        <div class="col-md-8">
 
-<div class="container mt-5`">
-  <div class="row justify-content-center">
-    <div class="col-6">
-      <h2>Add a booking</h2>
-      <%= simple_form_for [@friend_group, @booking] do |f| %>
-        <div class="form-inputs">
-          <%= f.input :start_date, as: :string, input_html: { value: f.object.start_date, class: "date start" } %>
-          <%= f.input :end_date, as: :string, input_html: { value: f.object.end_date, class: "date end" } %>
-          <%= f.hidden_field :status, value: 'available' %>
-          <%= f.input :total_price, input_html: {value: f.object.total_price || '0', class: "total-price"} %>
+          <!-- make a card -->
+          <div class="card p-3 mb-3">
+            <h2 class="text-center"><%=@friend_group.title.upcase  %> </h2>
+            <img src='<%= cl_image_path(@friend_group.photo.key, :crop => :fill) %> ' alt="group photo" />
+            <p><strong><%= @friend_group.title %></strong></p>
+            <p><small><%= @friend_group.description %></small></p>
+            <span><%= @friend_group.price %>/ per day</span>
+          </div>
         </div>
-        <div class="form-actions btn btn-outline-warning">
-          <%= f.button :submit, value: 'confirm'%>
 
-        </div>
-      <% end %>
+  <div class="col-md-4">
+          <!-- checkout -->
+          <div class="bg-white border p-3 sticky-top">
+            <!-- make this a full length button -->
+              <h3><strong>Join them now!</strong></h3>
+            <div class="d-flex justify-content-between mt-3">
+              <p><strong>Total</strong></p>
+              <p><strong><%= @booking.total_price %></strong></p>
+            </div>
 
-    </div>
-  </div>
-</div>
+
+            <li class= " btn btn-warning ml-2">
+              <%= link_to "checkout", friend_group_path(@friend_group), class: "a btn btn-ghost" %>
+            </li>
+            <li class= " btn btn-warning ml-2">
+              <%= link_to 'Cancel', friend_groups_path, class: "a " %>
+            </li>
+          <!-- /checkout -->
+

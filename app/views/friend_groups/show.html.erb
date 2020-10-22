@@ -34,11 +34,9 @@
           <%= f.input :start_date, as: :string, input_html: { class: "date start" } %>
           <%= f.input :end_date, as: :string, input_html: { class: "date end" } %>
           <%= f.hidden_field :status, value: 'available' %>
-          <%= f.hidden_field :total_price, input_html: {class: "total-price"} %>
         </div>
         <div class="form-actions btn btn-outline-warning">
           <%= f.button :submit%>
-
         </div>
       <% end %>
 
@@ -61,7 +59,6 @@
     <% end %>
   </div>
 <% end %>
-
 
 
 <ul class="list-group">
