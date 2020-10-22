@@ -1,4 +1,5 @@
 class FriendGroupsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   def index
     if params[:query].present?
       @friend_groups = FriendGroup.search_by_title_and_desc(params[:query])
