@@ -1,4 +1,4 @@
-      <div class="border">
+    <div class="border">
       <div class="card-product">
         <img src='<%= cl_image_path(@friend_group.photo.key, :crop => :fill) %> ' alt="group photo" />
         <div class="card-product-infos">
@@ -87,7 +87,7 @@
   </ul>
 
 <div id="map"
-     style="width: 100%; height: 600px;"
+     style="width: 450px; height: 600px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>

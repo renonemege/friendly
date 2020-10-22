@@ -1,27 +1,24 @@
-<div class="container mt-15">
-  <h1>Friend Groups</h1>
-</div>
 
-<div class="cards mb-5">
-  <% @friend_groups.each do |group| %>
-      <%= link_to group, class: "text-decoration-none display:flex" do%>
-        <div class="card-category " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path(group.photo.key, :crop => :fill) %> ')">
-          <h2><%= group.title %></li></h2>
-          <div class="card-tags">
-            <% if current_user && group.user%>
-              <%= link_to 'Edit', edit_friend_group_path(group) %></p>
-              <%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %>
-            <% end %>
-            <h2 class="card-trip-pricing"><%= group.price %></h2>
-          </div>
+
+  <div class="index mt-15">
+    <h1>Friend Groups</h1>
+  </div>
+ <div class="content">  
+  <div class="friend-cards">
+    <% @friend_groups.each do |group| %>
+      <%= link_to group do %>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path(group.photo.key, :crop => :fill) %> ')">
+          <h2><%= group.title %></h2>
         </div>
       <% end %>
-  <% end %>
-</div>
+    <% end %>
+  </div>
 
 
-<div id="map"
-     style="width: 450px; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      <div id="map"
+        style="width: 500px; height: 715px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
 </div>
+
