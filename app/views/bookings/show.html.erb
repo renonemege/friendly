@@ -1,34 +1,33 @@
-
-
-      <div class="row mt-3">
-        <div class="col-md-8">
-
-          <!-- make a card -->
-          <div class="card p-3 mb-3">
-            <h2 class="text-center"><%=@friend_group.title.upcase  %> </h2>
-            <img src='<%= cl_image_path(@friend_group.photo.key, :crop => :fill) %> ' alt="group photo" />
-            <p><strong><%= @friend_group.title %></strong></p>
-            <p><small><%= @friend_group.description %></small></p>
-            <span><%= @friend_group.price %>/ per day</span>
+<div class="row mt-3">
+  <div class="col-md-8">
+    <div class="bg-white border p-3 sticky-top">
+      <div class="row">
+        <img src='<%= cl_image_path(@friend_group.photo.key, :crop => :fill) %> ' alt="group photo" />
+        <div class="d-flex justify-content-between mt-3">
+          <div class="col">
+            <h2><strong><%= @friend_group.title %></strong></h2>
+            <span><%= @friend_group.price %>/day</span>
           </div>
         </div>
-
+      </div>
+    </div>
+  </div>
+<!-- checkout -->
   <div class="col-md-4">
-          <!-- checkout -->
-          <div class="bg-white border p-3 sticky-top">
-            <!-- make this a full length button -->
-              <h3><strong>Join them now!</strong></h3>
-            <div class="d-flex justify-content-between mt-3">
-              <p><strong>Total</strong></p>
-              <p><strong><%= @booking.total_price %></strong></p>
-            </div>
+    <div class="bg-white border p-3 sticky-top">
+      <h3><strong>Join them now!</strong></h3>
+      <div class="d-flex justify-content-between mt-3">
+        <p><strong>Total</strong></p>
+        <p><strong><%= @booking.total_price %></strong></p>
+      </div>
+      <li class= " btn btn-warning ml-2">
+        <%= link_to "checkout", friend_group_path(@friend_group), class: "a btn btn-ghost" %>
+      </li>
+      <li class= " btn btn-warning ml-2">
+        <%= link_to 'Cancel', friend_groups_path, class: "a " %>
+      </li>
+    </div>
+  </div>
+</div>
 
-
-            <li class= " btn btn-warning ml-2">
-              <%= link_to "checkout", friend_group_path(@friend_group), class: "a btn btn-ghost" %>
-            </li>
-            <li class= " btn btn-warning ml-2">
-              <%= link_to 'Cancel', friend_groups_path, class: "a " %>
-            </li>
-          <!-- /checkout -->
 
