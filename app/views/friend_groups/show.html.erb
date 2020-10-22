@@ -1,29 +1,30 @@
-    <div class="border">
-      <div class="card-product">
-        <img src='<%= cl_image_path(@friend_group.photo.key, :crop => :fill) %> ' alt="group photo" />
-        <div class="card-product-infos">
-          <div class="card-title mb-5 p-1">
-            <h3><%= @friend_group.title %></h3>
-          </div>
-          <p>--<%= @friend_group.description %>--</p>
-          <p>Adress: <%= @friend_group.address%></p>
-          <p><strong>Price: <%= @friend_group.price %>€</strong></p>
 
-          <% if current_user && @friend_group.user%>
-          <li class= " btn btn-warning ml-2 mt-5">
-            <%= link_to "delete group ", friend_group_path(@friend_group), method: :delete, data: { confirm: "Are you sure?"}, class: "a" %>
-          </li>
-          <li class= " btn btn-warning ml-2 mt-5">
-            <%= link_to 'Edit', edit_friend_group_path(@friend_group), class: "a" %>
-          </li>
-            <% end %>
-              <li class= " btn btn-warning ml-2 mt-5">
-                <%= link_to 'Back', friend_groups_path, class: "a" %>
-              </li>
-        </div>
+<div class="border">
+  <div class="card-product">
+    <img src='<%= cl_image_path(@friend_group.photo.key, :crop => :fill) %> ' alt="group photo" />
+    <div class="card-product-infos">
+      <div class="card-title mb-5 p-1">
+        <h3><%= @friend_group.title %></h3>
       </div>
+      <p>--<%= @friend_group.description %>--</p>
+      <p>Adress: <%= @friend_group.address%></p>
+      <p><strong>Price: <%= @friend_group.price %>€</strong></p>
+
+      <% if current_user && @friend_group.user%>
+      <li class= " btn btn-warning ml-2 mt-5">
+        <%= link_to "delete group ", friend_group_path(@friend_group), method: :delete, data: { confirm: "Are you sure?"}, class: "a" %>
+      </li>
+      <li class= " btn btn-warning ml-2 mt-5">
+        <%= link_to 'Edit', edit_friend_group_path(@friend_group), class: "a" %>
+      </li>
+        <% end %>
+          <li class= " btn btn-warning ml-2 mt-5">
+            <%= link_to 'Back', friend_groups_path, class: "a" %>
+          </li>
     </div>
- 
+  </div>
+</div>
+
 
 
 
@@ -38,10 +39,10 @@
        <h2>Rent this friend group...</h2>
         <div class="form-inputs d-flex">
           <%= f.input :start_date,
-                      as: :string, 
-                      input_html: { class: "date start" }, 
+                      as: :string,
+                      input_html: { class: "date start" },
                       label: false,
-                      placeholder: "from", 
+                      placeholder: "from",
                       wrapper_html: { class: "mr-2 ml-1" } %>
           <%= f.input :end_date,
                       as: :string,
@@ -49,7 +50,7 @@
                       label: false,
                       placeholder: "until",
                       wrapper_html: { class: "mr-2" } %>
-                       
+
 
           <%= f.hidden_field :status, value: 'available' %>
         </div>
@@ -64,15 +65,20 @@
       <div class="leave-review-container">
         <div class="d-flex">
           <h2>Leave a nice comment...</h2>
-          
+
             <%= simple_form_for [@friend_group, @review] do |f| %>
               <div class="form-inputs">
                 <%= f.input :content,
                             as: :text,
                             label: false %>
-                <%= f.input :stars,
-                            label: false %>
-           
+              <fieldset class="rating">
+                <%=f.radio_button :stars, 5, :id => "star5" %><label for="star5" title="Excellent!"></label>
+                <%=f.radio_button :stars, 4, :id => "star4" %> <label for="star4" title="Good!"></label>
+                <%=f.radio_button :stars, 3, :id => "star3" %> <label for="star3" title="Average!"></label>
+                <%=f.radio_button :stars, 2, :id => "star2" %> <label for="star2" title="Poor!"></label>
+                <%=f.radio_button :stars, 1, :id => "star1" %> <label for="star1" title="Very Poor!"></label>
+              </fieldset>
+
             <div class="form-actions">
               <%= f.button :submit,"leave a comment!", class:"btn btn-outline-warning"%>
             </div>
