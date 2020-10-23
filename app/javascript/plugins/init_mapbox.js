@@ -36,6 +36,7 @@ const initMapbox = () => {
       .setLngLat([ marker.lng, marker.lat ])
       .setPopup(popup) // add this
       .addTo(map);
+
     });
 
     fitMapToMarkers(map, markers);
