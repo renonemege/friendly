@@ -3,7 +3,7 @@
 <div class="row mt-5">
 
 <div class="col-6">
-      <h1 clas="ml-2">MY BOOKINGS</h1>
+  <h1 clas="ml-2">MY BOOKINGS</h1>
 
   <% @sum = 1 %>
   <% @bookings.each do |booking| %>
@@ -22,7 +22,6 @@
     </div>
   <% end %>
 </div>
-
 <div class="col-6">
       <h1 class="ml-2">MY FRIEND GROUPS</h1>
   <% @sum = 1 %>
@@ -59,8 +58,43 @@
   <% end %>
 </div>
 
+
+
+
+<%= link_to 'Back', friend_groups_path, class: "card-back-link btn btn-primary" %>
+<div class="card w-100">
+  <% @friend_groups.each do |group| %>
+    <div class="booking-offers">
+      <h1><%= group.title %></h1>
+      <% group.bookings.each do |offer| %>
+        <h3>Pending request to book <%= group.title %></h3>
+        <h3>on <%= offer.start_date %></h3>
+        <h3><%= offer.status %></h3>
+        <%= simple_form_for(offer, method: :patch) do |f| %>
+          <div class="d-flex">
+            <div class="form-inputs d-flex">
+              <%= f.hidden_field :status, value: 'accepted' %>
+            </div>
+            <div class="form-actions">
+              <%= f.button :submit,"accept booking", class:"btn btn-outline-warning"%>
+            </div>
+          </div>
+        <% end %>
+
+
+
+        <%= simple_form_for(offer, method: :patch) do |f| %>
+          <div class="d-flex">
+            <div class="form-inputs d-flex">
+              <%= f.hidden_field :status, value: 'declined' %>
+            </div>
+            <div class="form-actions">
+              <%= f.button :submit,"decline booking", class:"btn btn-outline-warning"%>
+            </div>
+          </div>
+        <% end %>
+       <% end %>
+    </div>
+
+  <% end %>
 </div>
-
-
-<%= link_to 'Back', friend_groups_path, class: "card-back-link btn btn-warning " %>
-
