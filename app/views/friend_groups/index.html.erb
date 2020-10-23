@@ -2,14 +2,20 @@
 
 
   <div class="index mt-15">
-    <h1>Friend Groups</h1>
+    <h1>~~Friend Groups~~</h1>
   </div>
  <div class="content">
   <div class="friend-cards">
     <% @friend_groups.each do |group| %>
       <%= link_to group do %>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path(group.photo.key, :crop => :scale, :height => 420) %> ')">
-          <h2><%= group.title %></h2>
+        <div class="card-trip">
+          <img src="<%= cl_image_path(group.photo.key, :crop => :scale, :height => 420) %>" />
+            <div class="card-trip-infos">
+              <div>
+              <h2><%= group.address %></h2>
+              </div>
+              <h2 class="card-trip-pricing"><%= group.price %>€</h2>
+            </div>
         </div>
       <% end %>
     <% end %>
