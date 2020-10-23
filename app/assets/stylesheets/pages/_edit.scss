@@ -16,16 +16,15 @@
     font-family: 'Roboto', sans-serif;  }
 }
 
-.btn {
-  justify-content: center;
-  width: 200px;
-  margin-bottom: 10px;
-}
-
-.btn:hover {
-  color: orange;
-}
-
 .btn-place {
   text-align: center;
+  
+  .btn {
+    justify-content: center;
+    width: 200px;
+    margin-bottom: 10px;
+  }
+  .btn:hover {
+    color: orange;
+  }
 }
