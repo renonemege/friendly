@@ -2,7 +2,7 @@
 
 <div class="border">
   <div class="card-product">
-    <img src='<%= cl_image_path(@friend_group.photo.key, :crop => :fill) %> ' alt="group photo" />
+    <img src='<%= cl_image_path(@friend_group.photo.key, :crop => :scale, :height => 420) %> ' alt="group photo" />
     <div class="card-product-infos">
       <div class="card-title mb-5 p-1">
         <h3><%= @friend_group.title %></h3>

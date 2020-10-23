@@ -8,7 +8,7 @@
   <% @sum = 1 %>
   <% @bookings.each do |booking| %>
     <div class="card-product ">
-      <img src='<%= cl_image_path(booking.friend_group.photo.key, :crop => :fill) %> ' alt="group photo" />
+      <img src='<%= cl_image_path(booking.friend_group.photo.key, :crop => :scale, :height => 420) %> ' alt="group photo" />
       <div class="card-product-infos">
         <h3><%= @sum%></h3>
         <h2><%= booking.friend_group[:title] %></h2>
@@ -44,6 +44,7 @@
         <p><strong>Received Total: </strong> <%= @received %></p>
         <p><strong>Status: </strong></p>
         <% @sum += 1 %>
+        <div class="container"></div>
         <li class= " btn btn-warning ml-2 mt-5">
           <%= link_to "Delete", friend_group_path(group), method: :delete, data: { confirm: "Are you sure?"}, class: "a" %>
         </li>

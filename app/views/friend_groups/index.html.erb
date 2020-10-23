@@ -8,7 +8,7 @@
   <div class="friend-cards">
     <% @friend_groups.each do |group| %>
       <%= link_to group do %>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path(group.photo.key, :crop => :fill) %> ')">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path(group.photo.key, :crop => :scale, :height => 420) %> ')">
           <h2><%= group.title %></h2>
         </div>
       <% end %>
