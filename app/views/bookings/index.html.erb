@@ -1,0 +1,32 @@
+<%= render 'shared/navbar' %>
+
+
+<% @bookings.each do |offer| %>
+        <div class="booking-border">
+          <div class="ml-2 mt-2">
+            <h3>Pending request to book <%= offer.friend_group.title %></h3>
+            <h3>on <%= offer.start_date %> - <%= offer.end_date %></h3>
+            <h3><%= offer.status %></h3>
+          </div>
+          <%= simple_form_for(offer, method: :patch) do |f| %>
+            <div class="d-flex booking-border">
+              <div class="form-inputs d-flex">
+                <%= f.hidden_field :status, value: 'accepted' %>
+              </div>
+              <div class="form-actions">
+                <%= f.button :submit,"accept booking", class:"btn btn-outline-warning"%>
+              </div>
+            </div>
+          <% end %>
+          <%= simple_form_for(offer, method: :patch) do |f| %>
+            <div class="d-flex">
+              <div class="form-inputs d-flex">
+                <%= f.hidden_field :status, value: 'declined' %>
+              </div>
+              <div class="form-actions">
+                <%= f.button :submit,"decline booking", class:"btn btn-outline-warning"%>
+              </div>
+            </div>
+            </div>
+  <% end %>
+   <% end %>
