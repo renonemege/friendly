@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   def index
-    @booking = current_user.booking
+    @bookings = Booking.joins(:friend_group).where(friend_groups: { user: current_user }, status: "available")
   end
 
   def create
@@ -26,7 +26,9 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     @booking.update(booking_params)
-    redirect_to dashboard_path
+    flash[:alert] = "Booking succesfuly #{booking_params[:status]}"
+
+    redirect_to bookings_path
   end
 
   private
