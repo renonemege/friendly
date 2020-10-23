@@ -13,17 +13,19 @@
   h1 {
     margin-top: 10px;
     text-align: center;
-    font-family: 'Roboto', sans-serif;  }
+    font-family: 'Roboto', sans-serif;
+  }
 }
 
 .btn-place {
   text-align: center;
-  
+
   .btn {
     justify-content: center;
     width: 200px;
     margin-bottom: 10px;
   }
+  
   .btn:hover {
     color: orange;
   }
