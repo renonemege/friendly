@@ -60,6 +60,7 @@
 
 
 
+
 <%= link_to 'Back', friend_groups_path, class: "card-back-link btn btn-primary" %>
 <div class="card w-100">
   <% @friend_groups.each do |group| %>
@@ -79,6 +80,7 @@
             </div>
           </div>
         <% end %>
+
 
 
         <%= simple_form_for(offer, method: :patch) do |f| %>

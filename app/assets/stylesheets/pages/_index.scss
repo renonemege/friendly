@@ -1,4 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre&family=Noto+Sans+SC:wght@500&family=Roboto&display=swap');
 // Import page-specific CSS files here.
 @import "home";
 @import "show";
 @import "edit";
+@import "new";
+
+.index {
+  h1 {
+    text-align: center;
+    margin-top: 10px;
+    font-family: 'Roboto', sans-serif;
+  }
+}
