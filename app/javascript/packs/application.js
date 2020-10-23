@@ -27,7 +27,7 @@ import { pickDate } from "../components/flatpickr";
 // import { getTotalPrice } from "../components/price"
 import { initMapbox } from '../plugins/init_mapbox';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
-
+import { flatpickrUnavailable } from '../plugins/init_flatpickr';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -39,4 +39,5 @@ document.addEventListener('turbolinks:load', () => {
   // getTotalPrice();
   initMapbox();
   initUpdateNavbarOnScroll();
+  flatpickrUnavailable();
 });
