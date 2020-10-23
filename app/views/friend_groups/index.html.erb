@@ -9,7 +9,9 @@
     <% @friend_groups.each do |group| %>
       <%= link_to group do %>
         <div class="card-trip">
-          <img src="<%= cl_image_path(group.photo.key, :crop => :scale, :height => 420) %>" />
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(group.photo.key, :crop => :scale, :height => 420) %>)">
+            <%= group.title %>
+          </div>
             <div class="card-trip-infos">
               <div>
               <h2><%= group.address %></h2>
