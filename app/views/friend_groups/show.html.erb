@@ -11,17 +11,18 @@
       <p>Adress: <%= @friend_group.address%></p>
       <p><strong>Price: <%= @friend_group.price %>€</strong></p>
 
-      <% if current_user && @friend_group.user%>
-      <li class= " btn btn-warning ml-2 mt-5">
-        <%= link_to "Delete", friend_group_path(@friend_group), method: :delete, data: { confirm: "Are you sure?"}, class: "a" %>
-      </li>
-      <li class= " btn btn-warning ml-2 mt-5">
-        <%= link_to 'Edit', edit_friend_group_path(@friend_group), class: "a" %>
-      </li>
-        <% end %>
-          <li class= " btn btn-warning ml-2 mt-5">
-            <%= link_to 'Back', friend_groups_path, class: "a" %>
-          </li>
+      <% if @friend_group.user == current_user%>
+
+        <li class= " btn btn-warning ml-2 mt-5">
+          <%= link_to "Delete", friend_group_path(@friend_group), method: :delete, data: { confirm: "Are you sure?"}, class: "a" %>
+        </li>
+        <li class= " btn btn-warning ml-2 mt-5">
+          <%= link_to 'Edit', edit_friend_group_path(@friend_group), class: "a" %>
+        </li>
+      <% end %>
+        <li class= " btn btn-warning ml-2 mt-5">
+          <%= link_to 'Back', friend_groups_path, class: "a" %>
+        </li>
     </div>
   </div>
 </div>
@@ -97,7 +98,7 @@
           <span class="far fa-star"></span>
       <% end %>
       <% else %>
-      <% @friend_group.reviews.each do |review| %>
+      <% @friend_group.reviews.reverse.each do |review| %>
         <div class="review mb-5 mt-3">
           <li class="list-group-item">
             <% review.stars.times do  %>
