@@ -52,3 +52,14 @@
   padding: 16px;
 }
 
+.btn-primary {
+  background-color: #FF5A5F;
+  padding: 16px 24px;
+  border: none;
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus {
+  background-color: #FF5A5F;
+}

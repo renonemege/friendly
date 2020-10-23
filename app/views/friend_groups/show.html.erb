@@ -36,31 +36,33 @@
   <div class="interaction-container">
     <div class="border-booking">
       <div class="make-booking-container">
-        <%= simple_form_for [@friend_group, @booking] do |f| %>
-        <div class="d-flex">
-        <h2>Rent this friend group...</h2>
-          <div class="form-inputs d-flex">
-            <%= f.input :start_date,
-                        as: :string,
-                        input_html: { class: "date start" },
-                        label: false,
-                        placeholder: "from",
-                        wrapper_html: { class: "mr-2 ml-1" } %>
-            <%= f.input :end_date,
-                        as: :string,
-                        input_html: { class: "date end" },
-                        label: false,
-                        placeholder: "until",
-                        wrapper_html: { class: "mr-2" } %>
+        <div id='friend-group-booking-dates' data-unavailable="<%= @friend_group.unavailable_dates.to_json %>">
+          <%= simple_form_for [@friend_group, @booking] do |f| %>
+          <div class="d-flex">
+          <h2>Rent this friend group...</h2>
+            <div class="form-inputs d-flex">
+              <%= f.input :start_date,
+                          as: :string,
+                          input_html: { class: "date start" },
+                          label: false,
+                          placeholder: "from",
+                          wrapper_html: { class: "mr-2 ml-1" } %>
+              <%= f.input :end_date,
+                          as: :string,
+                          input_html: { class: "date end" },
+                          label: false,
+                          placeholder: "until",
+                          wrapper_html: { class: "mr-2" } %>
 
 
-            <%= f.hidden_field :status, value: 'available' %>
+              <%= f.hidden_field :status, value: 'available' %>
+            </div>
+            <div class="form-actions">
+              <%= f.button :submit,"meet up!", class:"btn btn-outline-warning"%>
+            </div>
           </div>
-          <div class="form-actions">
-            <%= f.button :submit,"meet up!", class:"btn btn-outline-warning"%>
-          </div>
+          <% end %>
         </div>
-        <% end %>
       </div>
     </div>
 

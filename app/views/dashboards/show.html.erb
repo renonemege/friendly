@@ -27,9 +27,9 @@
       <h1 class="ml-2">MY FRIEND GROUPS</h1>
   <% @sum = 1 %>
   <% @friend_groups.each do |group| %>
-    <div class="card-product ">
-      <img src='<%= cl_image_path(group.photo.key, :crop => :fill) %> ' alt="group photo" />
-      <div class="card-product-infos">
+    <div class="card-product " id="dash-card">
+      <img src='<%= cl_image_path(group.photo.key, :crop => :scale, :height => 420) %> ' alt="group photo" />
+      <div class="card-product-infos" id="dash-infos">
         <h3><%= @sum%></h3>
         <h2><%= group.title %></h2>
         <p><%= group.description %></p>
@@ -44,6 +44,15 @@
         <p><strong>Received Total: </strong> <%= @received %></p>
         <p><strong>Status: </strong></p>
         <% @sum += 1 %>
+        <li class= " btn btn-warning ml-2 mt-5">
+          <%= link_to "Delete", friend_group_path(group), method: :delete, data: { confirm: "Are you sure?"}, class: "a" %>
+        </li>
+        <li class= " btn btn-warning ml-2 mt-5">
+          <%= link_to 'Edit', edit_friend_group_path(group), class: "a" %>
+        </li>
+        <li class= " btn btn-warning ml-2 mt-5">
+          <%= link_to 'Back', friend_groups_path, class: "a" %>
+        </li>
       </div>
     </div>
   <% end %>
@@ -52,5 +61,5 @@
 </div>
 
 
-<%= link_to 'Back', friend_groups_path, class: "card-back-link btn btn-danger" %> |
+<%= link_to 'Back', friend_groups_path, class: "card-back-link btn btn-primary" %>
 
