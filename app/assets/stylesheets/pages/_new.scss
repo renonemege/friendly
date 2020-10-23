@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre&family=Noto+Sans+SC:wght@500&family=Roboto&display=swap');
+
+.new-border {
+    border: 1px solid;
+    box-sizing: border-box;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #b8de6f;
+    margin: 10px;
+  }
+
+.new-border {
+  h1 {
+    margin-top: 10px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;  }
+}
+
+.btn-place {
+
+  .btn {
+    justify-content: center;
+    width: 200px;
+    margin-bottom: 10px;
+  }
+}
+
+.new_friend_group {
+  display: block;
+}

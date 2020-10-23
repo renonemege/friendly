@@ -27,32 +27,83 @@
   margin-right: 10px;
   a {
     height: 250px;
+    transition: all 0.5s ease;
+  }
+  a:hover {
+    text-decoration: none;
+    transform: translateY(-2px);
+  }
+  h2 {
+    color: #968c83;
   }
 }
 
-body {
-  margin: 0;
-  font-family: 'Varela Round', sans-serif;
-  font-size: 18px;
-  background: #F4F4F4;
+
+// body {
+//   margin: 0;
+//   font-family: 'Varela Round', sans-serif;
+//   font-size: 18px;
+//   background: #F4F4F4;
+// }
+// p {
+//   font-weight: lighter;
+// }
+// h1, h2, h3 {
+//   font-family: 'Varela Round', sans-serif;
+//   font-weight: bold;
+// }
+// h1 {
+//   font-size: 30px;
+// }
+// h2 {
+//   font-size: 25px;
+//   margin-bottom: 20px;
+// }
+// h3 {
+//   font-size: 23px;
+// }
+// .padded {
+//   padding: 30px 0;
+// }
+
+// comment
+
+.card-trip {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
-p {
-  font-weight: lighter;
+
+.card-trip > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
 }
-h1, h2, h3 {
-  font-family: 'Varela Round', sans-serif;
+
+.card-trip h2 {
+  font-size: 16px;
   font-weight: bold;
+  margin: 0;
 }
-h1 {
-  font-size: 30px;
+
+.card-trip p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
 }
-h2 {
-  font-size: 25px;
-  margin-bottom: 20px;
+
+
+.card-trip .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
 }
-h3 {
-  font-size: 23px;
-}
-.padded {
-  padding: 30px 0;
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
 }

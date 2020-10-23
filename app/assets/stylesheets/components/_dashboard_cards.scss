@@ -63,3 +63,20 @@
 .btn-primary:focus {
   background-color: #FF5A5F;
 }
+
+.booking-border {
+  border: 1px solid;
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #b8de6f;
+  margin: 10px;
+}
+
+.booking{
+  h1{
+    font-family: sans-serif;
+    color: black;
+  }
+
+}
