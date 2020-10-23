@@ -14,9 +14,9 @@
           </div>
             <div class="card-trip-infos">
               <div>
-              <h2><%= group.address %></h2>
+              <h2><%= group.title.upcase %> | <%= group.address %> </h2>
               </div>
-              <h2 class="card-trip-pricing"><%= group.price %>€</h2>
+              <h2 class="card-trip-pricing"><%= group.price %></h2>
             </div>
         </div>
       <% end %>
